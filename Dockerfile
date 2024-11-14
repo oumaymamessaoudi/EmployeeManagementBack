@@ -10,7 +10,7 @@ LABEL authors="ouma"
 WORKDIR /app
 
 # Copy the JAR file downloaded from Nexus
-COPY target/Management-0.0.1.jar app.jar
+COPY target/Management-0.0.2.jar app.jar
 
 # Expose the port your application will run on
 EXPOSE 8083
