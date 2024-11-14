@@ -1,7 +1,7 @@
 services:
   mysql:
     image: mysql:5.7
-    container_name: mysql-container-ouma
+    container_name: mysql-container-oumayma
     environment:
       MYSQL_ROOT_PASSWORD: my-secret-pw
       MYSQL_DATABASE: appTime
@@ -16,7 +16,7 @@ services:
 
   appTime:
     image: oumaymamessaoudi/my-spring-boot-app:${BUILD_NUMBER}
-    container_name: my_appTime_container-ouma
+    container_name: my_appTime_container-oumayma
     ports:
       - "8083:8083"
     depends_on:
