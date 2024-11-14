@@ -1,0 +1,41 @@
+services:
+  mysql:
+    image: mysql:5.7
+    container_name: mysql-container-ouma
+    environment:
+      MYSQL_ROOT_PASSWORD: my-secret-pw
+      MYSQL_DATABASE: appTime
+      MYSQL_USER: app-user
+      MYSQL_PASSWORD: app-password
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql-data:/var/lib/mysql
+    networks:
+      - my-network
+
+  appTime:
+    image: oumaymamessaoudi/my-spring-boot-app:${BUILD_NUMBER}
+    container_name: my_appTime_container-ouma
+    ports:
+      - "8083:8083"
+    depends_on:
+      - mysql
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/usersTime123?createDatabaseIfNotExist=true&useUnicode=true&useSSL=false
+      SPRING_DATASOURCE_USERNAME: app-user
+      SPRING_DATASOURCE_PASSWORD: app-password
+    volumes:
+      - appTime-logs:/app/logs
+    networks:
+      - my-network
+
+networks:
+  my-network:
+    driver: bridge
+
+volumes:
+  mysql-data:
+    driver: local
+  appTime-logs:
+    driver: local

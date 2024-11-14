@@ -27,10 +27,12 @@ public class OurUsers  implements UserDetails {
 
  /*   @OneToMany(cascade = CascadeType.ALL, mappedBy="utilisateur")
     private Set<Timesheet> Timesheets;*/
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return List.of(new SimpleGrantedAuthority(role.name()));
     }
+
     @Override
     public String getUsername() {
         return email;
