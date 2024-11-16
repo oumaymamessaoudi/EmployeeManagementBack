@@ -37,6 +37,10 @@ docker run --name mysql-employee-management -e MYSQL_ROOT_PASSWORD=your-password
 3.Run the application:
 mvn spring-boot:run
 
+🖼️ Screenshots
+
+![pipeline](https://github.com/user-attachments/assets/73ba80c9-727e-4a2d-9c58-8a5d0b9df71a)
+
 🤝 Contribution
 Feel free to fork this repository and create a pull request with your contributions. All ideas are welcome!
 
